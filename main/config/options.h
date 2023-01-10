@@ -32,8 +32,38 @@ extern "C"
 #include <stdint.h>
 #include <stdbool.h>
 #include <stddef.h>
+/* freertos */
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+#include "freertos/semphr.h"
+#include "freertos/queue.h"
+#include "freertos/timers.h"
+#include "freertos/event_groups.h"
+#include "freertos/message_buffer.h"
+/* misc */
+#include "xlog.h"
+#include "misc.h"
+#include "esp_err.h"
+/* standard */
+#include <unistd.h>
 
 /*---------- macro ----------*/
+/* system api interface start with "__"
+ */
+#define __delay_ms(ms)                              (vTaskDelay(pdMS_TO_TICKS(ms)))
+#define __delay_us(us)                              (usleep(us))
+#define __get_ticks()                               (xTaskGetTickCount())
+#define __get_ticks_from_isr()                      (xTaskGetTickCountFromISR())
+#define __reset_system()                            (esp_restart())
+#define __enter_critical()                          (taskENTER_CRITICAL())
+#define __enter_critical_from_isr()                 (taskENTER_CRITICAL_FROM_ISR())
+#define __exit_critical()                           (taskEXIT_CRITICAL())
+#define __exit_critical_from_isr()                  (taskEXIT_CRITICAL_FROM_ISR())
+#define __malloc(size)                              (pvPortMalloc(size))
+#define __free(ptr)                                 (vPortFree(ptr))
+#define __ms2ticks(ms)                              (pdMS_TO_TICKS(ms))
+#define __ticks2ms(ticks)                           ((ticks * (TickType_t)1000U) / (TickType_t)configTICK_RATE_HZ)
+
 /*---------- type define ----------*/
 /*---------- variable prototype ----------*/
 /*---------- function prototype ----------*/

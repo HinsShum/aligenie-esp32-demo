@@ -10,3 +10,4 @@ include($ENV{IDF_PATH}/tools/cmake/project.cmake)
 project(aligenie)
 
 idf_build_set_property(COMPILE_OPTIONS "-Wformat=0" APPEND)
+idf_build_set_property(COMPILE_OPTIONS "-Wno-implicit-fallthrough" APPEND)
