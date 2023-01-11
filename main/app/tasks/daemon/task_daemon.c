@@ -23,6 +23,7 @@
 
 /*---------- includes ----------*/
 #include "options.h"
+#include "resources.h"
 #include "nvs_flash.h"
 
 /*---------- macro ----------*/
@@ -94,6 +95,8 @@ static void _init(void)
 {
     /* initialize xlog */
     __xlog_init();
+    /* create resources pool */
+    resources_init();
     /* say hi */
     xlog_tag_info(TAG, "Initialize successfully\n");
 }
