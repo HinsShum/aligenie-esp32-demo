@@ -40,6 +40,8 @@ extern "C"
 #include "freertos/timers.h"
 #include "freertos/event_groups.h"
 #include "freertos/message_buffer.h"
+/* lwip */
+#include "lwip/def.h"
 /* misc */
 #include "xlog.h"
 #include "misc.h"
