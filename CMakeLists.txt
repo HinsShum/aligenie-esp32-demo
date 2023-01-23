@@ -6,6 +6,8 @@
 #        which is the required name of the file CMake looks for:
 cmake_minimum_required(VERSION 3.20)
 
+set(EXTRA_COMPONENT_DIRS $ENV{IDF_PATH}/examples/common_components/iperf)
+
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
 project(aligenie)
 

@@ -8,6 +8,7 @@ cmake_minimum_required(VERSION 3.20)
 
 # list all source file directories
 set(COMPONENTS_SRC_VPATH app/tasks/daemon)
+list(APPEND COMPONENTS_SRC_VPATH app/tasks/cmdline)
 list(APPEND COMPONENTS_SRC_VPATH app/utils)
 list(APPEND COMPONENTS_SRC_VPATH app/resources)
 list(APPEND COMPONENTS_SRC_VPATH app/data_proc)

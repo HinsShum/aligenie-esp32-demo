@@ -23,6 +23,7 @@
 
 /*---------- includes ----------*/
 #include "options.h"
+#include "tasks_def.h"
 #include "resources.h"
 #include "data_proc.h"
 #include "nvs_flash.h"
@@ -100,6 +101,8 @@ static void _init(void)
     resources_init();
     /* data center proc */
     data_proc_init();
+    /* init other tasks */
+    task_cmdline_create();
     /* say hi */
     xlog_tag_info(TAG, "Initialize successfully\n");
 }
@@ -109,6 +112,5 @@ void app_main(void)
     _init();
     for(;;) {
         __delay_ms(5000);
-        xlog_tag_info(TAG, "Hello, AliGenie\n");
     }
 }

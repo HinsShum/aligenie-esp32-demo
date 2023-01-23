@@ -1,9 +1,9 @@
 /**
- * @file main/app/tasks/inc/tasks_def.h
+ * @file app/tasks/cmdline/inc/cmdline_def.h
  *
  * Copyright (C) 2023
  *
- * tasks_def.h is free software: you can redistribute it and/or modify
+ * cmdline_def.h is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
@@ -20,8 +20,8 @@
  *
  * @encoding utf-8
  */
-#ifndef __TASKS_DEF_H
-#define __TASKS_DEF_H
+#ifndef __CMDLINE_DEF_H
+#define __CMDLINE_DEF_H
 
 #ifdef __cplusplus
 extern "C"
@@ -32,18 +32,14 @@ extern "C"
 #include <stdint.h>
 #include <stdbool.h>
 #include <stddef.h>
-#include "options.h"
 
 /*---------- macro ----------*/
-#define CONFIG_TASK_CMDLINE_STACKSIZE                       (4096)
-#define CONFIG_TASK_CMDLINE_PRIO                            (tskIDLE_PRIORITY + 1)
-
 /*---------- type define ----------*/
 /*---------- variable prototype ----------*/
 /*---------- function prototype ----------*/
-extern void task_cmdline_create(void);
+extern void cmd_uname_init(void);
 
 #ifdef __cplusplus
 }
 #endif
-#endif /* __TASKS_DEF_H */
+#endif /* __CMDLINE_DEF_H */
