@@ -33,7 +33,8 @@
 /*---------- function prototype ----------*/
 /*---------- variable ----------*/
 static void *cmd_init_tables[] = {
-    cmd_uname_init
+    cmd_uname_init,
+    cmd_iperf_init
 };
 
 /*---------- function ----------*/

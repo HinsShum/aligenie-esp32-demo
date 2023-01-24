@@ -1,9 +1,9 @@
 /**
- * @file app/tasks/cmdline/inc/cmdline_def.h
+ * @file app/data_proc/dp_common.c
  *
  * Copyright (C) 2023
  *
- * cmdline_def.h is free software: you can redistribute it and/or modify
+ * dp_common.c is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
@@ -20,27 +20,27 @@
  *
  * @encoding utf-8
  */
-#ifndef __CMDLINE_DEF_H
-#define __CMDLINE_DEF_H
-
-#ifdef __cplusplus
-extern "C"
-{
-#endif
 
 /*---------- includes ----------*/
-#include <stdint.h>
-#include <stdbool.h>
-#include <stddef.h>
+#include "data_proc_def.h"
+#include "resources.h"
+#include "options.h"
 
 /*---------- macro ----------*/
+#define TAG                                         "DPCommon"
+
 /*---------- type define ----------*/
 /*---------- variable prototype ----------*/
 /*---------- function prototype ----------*/
-extern void cmd_uname_init(void);
-extern void cmd_iperf_init(void);
-
-#ifdef __cplusplus
+/*---------- variable ----------*/
+/*---------- function ----------*/
+DATA_PROC_INIT_DEF(common)
+{
+    /* subscribe other account */
+    account->ops.subscribe(account, "storage");
+    account->ops.subscribe(account, "wifi_sta");
+    /* register account to resources pool */
+    resources_set("account_common", account);
+    /* say hi */
+    xlog_tag_info(TAG, "Initialize successfully\n");
 }
-#endif
-#endif /* __CMDLINE_DEF_H */
